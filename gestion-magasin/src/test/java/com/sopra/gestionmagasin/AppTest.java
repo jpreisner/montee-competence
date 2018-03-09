@@ -1,38 +1,41 @@
 package com.sopra.gestionmagasin;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
+public class AppTest {
+
+    @BeforeClass
+    public static void runOnceBeforeClass() {
+        System.out.println("@BeforeClass - runOnceBeforeClass");
     }
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
+    @AfterClass
+    public static void runOnceAfterClass() {
+        System.out.println("@AfterClass - runOnceAfterClass");
     }
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
+    @Before
+    public void runBeforeTestMethod() {
+        System.out.println("@Before - runBeforeTestMethod");
+    }
+
+    // Should rename to @AfterTestMethod
+    @After
+    public void runAfterTestMethod() {
+        System.out.println("@After - runAfterTestMethod");
+    }
+
+    @Test
+    public void test_method_1() {
+        System.out.println("@Test - test_method_1");
+    }
+
+    @Test
+    public void test_method_2() {
+        System.out.println("@Test - test_method_2");
     }
 }
